@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="Home suite" verbose="1" >
+    <test name="Check Home title" >
+        <classes>
+            <class name="tests.featureTests.HomePageTests">
+                <methods>
+                    <include name="verifyPageTitle" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
