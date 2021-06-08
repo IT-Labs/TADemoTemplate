@@ -13,12 +13,14 @@ The purpose of this repository is to present the setup of effective UI test auto
 ### Java
 Java download link https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html
 To check installed java version type "java -version" in your terminal
+
 ![Java version](docs/images/JavaVersion.png)
 For troubleshooting take a look at https://java.com/en/download/help/path.html
 
 ### Maven
 Maven download link https://maven.apache.org/download.cgi
 To check installed maven version type "mvn -v" in your terminal
+
 ![Maven version](docs/images/MavenVersion.png)
 For troubleshooting take a look at https://www.baeldung.com/install-maven-on-windows-linux-mac
 

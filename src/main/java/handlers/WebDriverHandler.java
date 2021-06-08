@@ -16,7 +16,7 @@ public class WebDriverHandler {
 
 
 
-    public static String setWebDriverPath(String operatingSystem, String browserName){
+    public static String getWebDriverPath(String operatingSystem, String browserName){
         // TODO: 5/21/2021  Better handling driver path initialization and error handling
         String driverPath = "";
         if(System.getProperty("os.name").toLowerCase().contains("windows") && operatingSystem.toLowerCase().equals("windows")){
@@ -34,16 +34,16 @@ public class WebDriverHandler {
     }
 
 
-    public static WebDriver initializeWebDriver(WebDriver driver) throws IOException {
-
-        switch (InitConfigHandler.initialPropertiesMap.get("browserName")){
+    public static WebDriver initializeWebDriver(String browserName) throws IOException {
+        WebDriver driver = null;
+        switch (browserName){
             case "chrome": {
                 //HelperMethods.createChromeOptions();
-                System.setProperty("webdriver.chrome.driver", setWebDriverPath(InitConfigHandler.initialPropertiesMap.get("os"), InitConfigHandler.initialPropertiesMap.get("os")));
+                System.setProperty("webdriver.chrome.driver", getWebDriverPath(InitConfigHandler.initialPropertiesMap.get("os"), InitConfigHandler.initialPropertiesMap.get("os")));
                 driver = new ChromeDriver(BrowserHandler.createChromeOptions());
             }
             case "firefox":{
-                System.setProperty("webdriver.gecko.driver", setWebDriverPath(InitConfigHandler.initialPropertiesMap.get("os"), InitConfigHandler.initialPropertiesMap.get("os")));
+                System.setProperty("webdriver.gecko.driver", getWebDriverPath(InitConfigHandler.initialPropertiesMap.get("os"), InitConfigHandler.initialPropertiesMap.get("os")));
                 driver = new FirefoxDriver(BrowserHandler.createFirefoxOptions());
             }
         }

@@ -13,37 +13,42 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
 
-import static handlers.WebDriverHandler.setWebDriverPath;
+import static handlers.WebDriverHandler.getWebDriverPath;
+import static handlers.WebDriverHandler.initializeWebDriver;
 
 public class TestBase {
-    public WebDriver driver;
-    public static HashMap<String, String> loadedConfigProperties;
+    public static WebDriver driver;
+    public static HashMap<String, String> environmentConfigProperties;
 
 
     @BeforeSuite
     public void setUp() throws IOException {
-        //Loaded properties from environment configuration files
-        loadedConfigProperties = InitConfigHandler.loadEnvironmentConfigurationFile();
 
-        //start correct driver - set webdriver path
-        String webDriverPath = setWebDriverPath(System.getProperty("os"), System.getProperty("browserName"));
+        HashMap <String, String> localConfigProperties = InitConfigHandler.getInitialConfigProperties();
 
-        // Initialize browser
-        switch (InitConfigHandler.getInitialConfigProperties().get("browserName")){
+        //Find correct driver - set webdriver path to initialize the driver
+        String webDriverPath = getWebDriverPath(System.getProperty("os"), System.getProperty("browserName"));
+
+        // Initialize webdriver
+        switch (localConfigProperties.get("browserName")){
+
             case "chrome": {
-                //HelperMethods.createChromeOptions();
-                System.setProperty("webdriver.chrome.driver", setWebDriverPath(InitConfigHandler.getInitialConfigProperties().get("os"), InitConfigHandler.getInitialConfigProperties().get("browserName")));
+                System.setProperty("webdriver.chrome.driver", webDriverPath);
                 driver = new ChromeDriver(BrowserHandler.createChromeOptions());
                 break;
             }
             case "firefox":{
-                System.setProperty("webdriver.gecko.driver", setWebDriverPath(InitConfigHandler.getInitialConfigProperties().get("os"), InitConfigHandler.getInitialConfigProperties().get("browserName")));
+                System.setProperty("webdriver.gecko.driver", webDriverPath);
                 driver = new FirefoxDriver(BrowserHandler.createFirefoxOptions());
                 break;
             }
         }
 
-        driver.get(InitConfigHandler.loadEnvironmentConfigurationFile().get("url").toString());///Not clear
+        //Choose correct environment
+        environmentConfigProperties = InitConfigHandler.loadEnvironmentConfigurationFile();
+
+        //Load URL from correct environment configuration files
+        driver.get(environmentConfigProperties.get("url"));
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         driver.manage().timeouts().pageLoadTimeout(120, TimeUnit.SECONDS);
 
