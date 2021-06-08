@@ -16,7 +16,7 @@ public class InitConfigHandler {
     }
 
     public static HashMap<String, String> getInitialConfigProperties(){
-        HashMap<String, String> localConfigProperties = new HashMap<String, String>();
+        HashMap<String, String> localConfigProperties = new HashMap<>();
         localConfigProperties.put("os", System.getProperty("os"));
         localConfigProperties.put("browserName", System.getProperty("browserName"));
         localConfigProperties.put("environment", System.getProperty("environment"));
@@ -25,9 +25,9 @@ public class InitConfigHandler {
         return localConfigProperties;
     }
 
-    public static HashMap loadEnvironmentConfigurationFile() throws IOException {
+    public static HashMap <String, String> loadEnvironmentConfigurationFile() throws IOException {
         String propFileName = "";
-        Properties properties = new Properties();
+        Properties properties;
 
         switch (System.getProperty("environment")) {
             case "live":
@@ -57,7 +57,7 @@ public class InitConfigHandler {
         }
 
         System.out.println("Property file name: " + propFileName);
-        HashMap<String, String> configProperties = new HashMap<String, String>();
+        HashMap<String, String> configProperties = new HashMap<>();
         configProperties.put("url", properties.getProperty("url"));
 
         return configProperties;

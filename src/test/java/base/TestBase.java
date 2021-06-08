@@ -2,7 +2,6 @@ package base;
 
 import handlers.BrowserHandler;
 import handlers.InitConfigHandler;
-import handlers.WebDriverHandler;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -14,7 +13,6 @@ import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
 
 import static handlers.WebDriverHandler.getWebDriverPath;
-import static handlers.WebDriverHandler.initializeWebDriver;
 
 public class TestBase {
     public static WebDriver driver;
