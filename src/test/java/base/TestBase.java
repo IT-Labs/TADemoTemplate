@@ -28,7 +28,7 @@ public class TestBase {
         String webDriverPath = getWebDriverPath(System.getProperty("os"), System.getProperty("browserName"));
 
         // Initialize webdriver
-        switch (localConfigProperties.get("browserName")){
+        /*switch (localConfigProperties.get("browserName")){
 
             case "chrome": {
                 System.setProperty("webdriver.chrome.driver", webDriverPath);
@@ -36,6 +36,26 @@ public class TestBase {
                 break;
             }
             case "firefox":{
+                System.setProperty("webdriver.gecko.driver", webDriverPath);
+                driver = new FirefoxDriver(BrowserHandler.createFirefoxOptions());
+                break;
+            }
+        }*/
+
+        switch (localConfigProperties.get("os").toLowerCase()){
+
+            case "windows": {
+                if(localConfigProperties.get("browserName").toLowerCase().equals("chrome")) {
+                    System.setProperty("webdriver.chrome.driver", webDriverPath);
+                    driver = new ChromeDriver(BrowserHandler.createChromeOptions());
+                }
+                else if(localConfigProperties.get("browserName").toLowerCase().equals("firefox")){
+                    System.setProperty("webdriver.gecko.driver", webDriverPath);
+                    driver = new FirefoxDriver(BrowserHandler.createFirefoxOptions());
+                }
+                break;
+            }
+            case "mac":{
                 System.setProperty("webdriver.gecko.driver", webDriverPath);
                 driver = new FirefoxDriver(BrowserHandler.createFirefoxOptions());
                 break;

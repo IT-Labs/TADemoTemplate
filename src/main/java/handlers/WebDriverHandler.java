@@ -14,6 +14,8 @@ public class WebDriverHandler {
     public static final String WINDOWS_CHROME_DRIVER_PATH = System.getProperty("user.dir") + File.separator + "webDrivers" + File.separator + "windows" + File.separator + "chromedriver.exe";
     public static final String WINDOWS_FIREFOX_DRIVER_PATH = System.getProperty("user.dir") + File.separator + "webDrivers" + File.separator + "windows" + File.separator + "geckodriver.exe";
 
+    public static final String MAC_CHROME_DRIVER_PATH = System.getProperty("user.dir") + File.separator + "webDrivers" + File.separator + "mac" + File.separator + "chromedriver";
+
 
 
     public static String getWebDriverPath(String operatingSystem, String browserName){
@@ -28,8 +30,12 @@ public class WebDriverHandler {
             }
         }
         else if (operatingSystem.toLowerCase().equals("mac")){
-//ToDo mac
-        }
+            switch (browserName.toLowerCase()){
+                case "chrome":  driverPath = MAC_CHROME_DRIVER_PATH;
+                    break;
+                /*case "firefox":  driverPath = WINDOWS_FIREFOX_DRIVER_PATH;
+                    break;*/
+            }        }
         return  driverPath;
     }
 
