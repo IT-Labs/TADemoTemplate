@@ -57,7 +57,7 @@ public class TestBase {
             }
             case "mac":{
                 System.setProperty("webdriver.chrome.driver", webDriverPath);
-                driver = new ChromeDriver(BrowserHandler.createFirefoxOptions());
+                driver = new ChromeDriver(BrowserHandler.createChromeOptions());
                 break;
             }
         }

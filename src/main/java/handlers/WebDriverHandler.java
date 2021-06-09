@@ -40,7 +40,7 @@ public class WebDriverHandler {
     }
 
 
-    public static WebDriver initializeWebDriver(String browserName) throws IOException {
+   /* public static WebDriver initializeWebDriver(String browserName) throws IOException {
         WebDriver driver = null;
         switch (browserName){
             case "chrome": {
@@ -50,7 +50,7 @@ public class WebDriverHandler {
             }
             case "firefox":{
                 System.setProperty("webdriver.gecko.driver", getWebDriverPath(InitConfigHandler.initialPropertiesMap.get("os"), InitConfigHandler.initialPropertiesMap.get("os")));
-                driver = new FirefoxDriver(BrowserHandler.createFirefoxOptions());
+                driver = new FirefoxDriver(BrowserHandler.createChromeOptions());
             }
         }
 
@@ -59,5 +59,5 @@ public class WebDriverHandler {
         driver.manage().timeouts().pageLoadTimeout(120, TimeUnit.SECONDS);
 
         return driver;
-    }
+    }*/
 }
