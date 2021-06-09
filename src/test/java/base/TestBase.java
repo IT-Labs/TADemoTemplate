@@ -56,8 +56,8 @@ public class TestBase {
                 break;
             }
             case "mac":{
-                System.setProperty("webdriver.gecko.driver", webDriverPath);
-                driver = new FirefoxDriver(BrowserHandler.createFirefoxOptions());
+                System.setProperty("webdriver.chrome.driver", webDriverPath);
+                driver = new ChromeDriver(BrowserHandler.createFirefoxOptions());
                 break;
             }
         }
