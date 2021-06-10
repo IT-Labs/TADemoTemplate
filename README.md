@@ -24,6 +24,14 @@ To check installed maven version type "mvn -v" in your terminal
 ![Maven version](docs/images/MavenVersion.png)
 For troubleshooting take a look at https://www.baeldung.com/install-maven-on-windows-linux-mac
 
+### Web Driver settings
+Web drivers are given under /webDrivers folder and separated in mac and windows folder.
+
+---
+**NOTE**
+ Driver version must match corresponding browser version on your system and webrivers given with this demo project may not match your browser versions (they should be checked and updated with the update of browser version).
+---
+
 ### Jenkins
 Jenkins download link https://www.jenkins.io/download/
 In order to execute maven job at Maven Plugin manager page install maven integration plugin
