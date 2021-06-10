@@ -1,10 +1,32 @@
 package handlers;
 
 import java.io.*;
-import java.util.HashMap;
-import java.util.Properties;
+import java.util.*;
 
 public class InitConfigHandler {
+
+    public static Set listOS = new HashSet();
+
+    public static void setSupportedOS(){
+        listOS.add("windows");
+        listOS.add("mac");
+    }
+
+    public static String getCurrentOS() {
+        return System.getProperty("os");
+    }
+
+    public static void checkAndValidatedOS() {
+        boolean supported = false;
+        if (listOS.contains(getCurrentOS())){
+            System.out.println("Hello from " + getCurrentOS());
+            supported = true;
+        } else {
+            System.out.println("*****************************************************************************************");
+            System.out.println("Entered " + getCurrentOS() + " operating system not supported or you have a typing error!");
+            System.out.println("*****************************************************************************************");
+        }
+    }
 
     public static HashMap<String, String> initialPropertiesMap;
     static {
@@ -24,6 +46,7 @@ public class InitConfigHandler {
 
         return localConfigProperties;
     }
+
 
     public static HashMap <String, String> loadEnvironmentConfigurationFile() throws IOException {
         String propFileName = "";

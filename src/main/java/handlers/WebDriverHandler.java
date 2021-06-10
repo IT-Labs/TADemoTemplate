@@ -14,7 +14,7 @@ public class WebDriverHandler {
     public static final String WINDOWS_CHROME_DRIVER_PATH = System.getProperty("user.dir") + File.separator + "webDrivers" + File.separator + "windows" + File.separator + "chromedriver.exe";
     public static final String WINDOWS_FIREFOX_DRIVER_PATH = System.getProperty("user.dir") + File.separator + "webDrivers" + File.separator + "windows" + File.separator + "geckodriver.exe";
 
-    public static final String MAC_CHROME_DRIVER_PATH = System.getProperty("user.dir") + File.separator + "webDrivers" + File.separator + "macOS" + File.separator + "chromedriver";
+    public static final String MAC_CHROME_DRIVER_PATH = System.getProperty("user.dir") + File.separator + "webDrivers" + File.separator + "mac" + File.separator + "chromedriver";
 
 
 
@@ -39,6 +39,25 @@ public class WebDriverHandler {
         return  driverPath;
     }
 
+    public static String getChromeDriverPath(String os){
+        String chromeDriverPath = "";
+        switch (os){
+            case "windows": chromeDriverPath = WINDOWS_CHROME_DRIVER_PATH;
+            break;
+            case "mac": chromeDriverPath = MAC_CHROME_DRIVER_PATH;
+            break;
+        }
+        return chromeDriverPath;
+    }
+
+    public static String getFirefoxDriverPath(String os){
+        String firefoxDriverPath = "";
+        switch (os){
+            case "windows": firefoxDriverPath = WINDOWS_FIREFOX_DRIVER_PATH;
+                break;
+        }
+        return firefoxDriverPath;
+    }
 
    /* public static WebDriver initializeWebDriver(String browserName) throws IOException {
         WebDriver driver = null;
