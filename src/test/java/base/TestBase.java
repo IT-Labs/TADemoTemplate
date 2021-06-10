@@ -48,6 +48,7 @@ public class TestBase {
 
         //Load URL from correct environment configuration files
         driver.get(environmentConfigProperties.get("url"));
+        driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         driver.manage().timeouts().pageLoadTimeout(120, TimeUnit.SECONDS);
     }
