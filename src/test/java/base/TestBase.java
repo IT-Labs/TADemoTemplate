@@ -9,7 +9,6 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
 
@@ -19,7 +18,7 @@ public class TestBase {
 
 
     @BeforeSuite
-    public void setUp() throws IOException {
+    public void setUp() {
 
         HashMap <String, String> initialProperties = InitConfigHandler.getInitialConfigProperties();
         InitConfigHandler.checkAndValidatedOS();
@@ -46,7 +45,6 @@ public class TestBase {
         driver.get(environmentConfigProperties.get("url"));
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         driver.manage().timeouts().pageLoadTimeout(120, TimeUnit.SECONDS);
-
     }
 
     @AfterSuite

@@ -3,7 +3,6 @@ package handlers;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.firefox.FirefoxProfile;
-import org.openqa.selenium.remote.CapabilityType;
 
 public class BrowserHandler {
 
@@ -21,7 +20,6 @@ public class BrowserHandler {
     }
 
     public static FirefoxProfile createFirefoxProfile() {
-        FirefoxProfile profile = new FirefoxProfile();
-        return profile;
+        return new FirefoxProfile();
     }
 }
