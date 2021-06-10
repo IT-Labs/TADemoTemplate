@@ -6,6 +6,7 @@ import handlers.WebDriverHandler;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.safari.SafariDriver;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 
@@ -34,6 +35,10 @@ public class TestBase {
             case "firefox":{
                 System.setProperty("webdriver.gecko.driver", WebDriverHandler.getFirefoxDriverPath(initialProperties.get("os")));
                 driver = new FirefoxDriver(BrowserHandler.createFirefoxOptions());
+                break;
+            }
+            case "safari":{
+                driver = new SafariDriver();
                 break;
             }
         }
