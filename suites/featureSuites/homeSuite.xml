@@ -1,6 +1,17 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
 
 <suite name="Home suite" verbose="1" >
+
+    <test name="Menu test" >
+        <classes>
+            <class name="tests.webTemplateTests.MenuTests">
+                <methods>
+                    <include name="verifyMenuItems" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+
     <test name="Check Home title" >
         <classes>
             <class name="tests.featureTests.HomePageTests">
@@ -10,4 +21,35 @@
             </class>
         </classes>
     </test>
+
+    <test name="Check Software company label" >
+        <classes>
+            <class name="tests.featureTests.HomePageTests">
+                <methods>
+                    <include name="verifySoftwareCompanyLabel" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Verify email subscription" >
+        <classes>
+            <class name="tests.webTemplateTests.FooterTests">
+                <methods>
+                    <include name="verifySignUpForm" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Verify footer section" >
+        <classes>
+            <class name="tests.webTemplateTests.FooterTests">
+                <methods>
+                    <include name="verifyFooterSection" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+
 </suite>
