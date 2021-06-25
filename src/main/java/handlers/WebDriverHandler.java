@@ -23,7 +23,7 @@ public class WebDriverHandler {
 
     public static String getFirefoxDriverPath(String os){
         String firefoxDriverPath = "";
-        if ("windows".equals(os)) {
+        if (os.equals("windows")) {
             firefoxDriverPath = WINDOWS_FIREFOX_DRIVER_PATH;
         }
         return firefoxDriverPath;
