@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="Regression suite" verbose="1" >
+
+    <test name="Verify menu" >
+        <classes>
+            <class name="tests.webTemplateTests.MenuTests">
+                <methods>
+                    <include name="verifyMenuItems" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Verify footer" >
+        <classes>
+            <class name="tests.webTemplateTests.FooterTests">
+                <methods>
+                    <include name="verifyFooterSection" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+</suite>

@@ -7,6 +7,7 @@ public class WebDriverHandler {
     //Path to webDriver folder where web drivers are stored
     public static final String WINDOWS_CHROME_DRIVER_PATH = System.getProperty("user.dir") + File.separator + "webDrivers" + File.separator + "windows" + File.separator + "chromedriver.exe";
     public static final String WINDOWS_FIREFOX_DRIVER_PATH = System.getProperty("user.dir") + File.separator + "webDrivers" + File.separator + "windows" + File.separator + "geckodriver.exe";
+    public static final String WINDOWS_EDGE_DRIVER_PATH = System.getProperty("user.dir") + File.separator + "webDrivers" + File.separator + "windows" + File.separator + "msedgedriver.exe";
 
     public static final String MAC_CHROME_DRIVER_PATH = System.getProperty("user.dir") + File.separator + "webDrivers" + File.separator + "mac" + File.separator + "chromedriver";
 
@@ -27,5 +28,13 @@ public class WebDriverHandler {
             firefoxDriverPath = WINDOWS_FIREFOX_DRIVER_PATH;
         }
         return firefoxDriverPath;
+    }
+
+    public static String getEdgeDriverPath(String os){
+        String edgeDriverPath = "";
+        if (os.equals("windows")) {
+            edgeDriverPath = WINDOWS_EDGE_DRIVER_PATH;
+        }
+        return edgeDriverPath;
     }
 }

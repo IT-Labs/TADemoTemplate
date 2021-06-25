@@ -5,6 +5,7 @@ import handlers.InitConfigHandler;
 import handlers.WebDriverHandler;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
 import org.testng.annotations.AfterSuite;
@@ -39,6 +40,11 @@ public class TestBase {
             }
             case "safari":{
                 driver = new SafariDriver();
+                break;
+            }
+            case "edge": {
+                System.setProperty("webdriver.edge.driver", WebDriverHandler.getEdgeDriverPath(initialProperties.get("os")));
+                driver = new EdgeDriver(BrowserHandler.createEgdeOptions());
                 break;
             }
         }
