@@ -1,6 +1,7 @@
 package handlers;
 
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.firefox.FirefoxProfile;
 
@@ -17,6 +18,10 @@ public class BrowserHandler {
         FirefoxProfile profile = createFirefoxProfile();
         firefoxOptions.setProfile(profile);
         return firefoxOptions;
+    }
+    public static EdgeOptions createEdgeOptions() {
+        EdgeOptions edgeOptions = new EdgeOptions();
+        return edgeOptions;
     }
 
     public static FirefoxProfile createFirefoxProfile() {
